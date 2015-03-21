@@ -1,1 +1,1 @@
-web: python src/manage.py run
+web: python app.py
