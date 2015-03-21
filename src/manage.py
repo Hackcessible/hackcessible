@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 
 from flask.ext.script import Manager
 
@@ -8,6 +9,12 @@ from hackcessible.user import User, UserDetail, ADMIN, ACTIVE
 from hackcessible.utils import MALE
 
 
+if "PORT" in os.environ:
+    print "Found $PORT in env"
+    port = os.environ["PORT"]
+else:
+    print "Did not find $PORT in env, using 5000"
+    port = 5000
 app = create_app()
 manager = Manager(app)
 
@@ -16,7 +23,7 @@ manager = Manager(app)
 def run():
     """Run in local machine."""
 
-    app.run()
+    app.run(port=port)
 
 
 @manager.command
