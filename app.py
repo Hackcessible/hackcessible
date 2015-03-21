@@ -39,6 +39,11 @@ def maptest():
     return render_template('maptest.html')
 
 
+@app.route('/curbmap')
+def curbmap():
+    return render_template('curbmap.html')
+
+
 if __name__ == '__main__':
     db.create_all()
     port = int(os.environ.get('PORT', 5000))
