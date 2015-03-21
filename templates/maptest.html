@@ -37,8 +37,6 @@
         marker.setMap(map);
         var response = {{ responsedata|tojson }}; 
         for (var stop in response) {
-
-          document.getElementById("myDiv").appendChild(document.createTextNode(JSON.stringify(response[stop]['lat']))); 
           addMarker(response[stop]['lat'],response[stop]['lon'], response[stop]['name']); 
         }
 
@@ -46,8 +44,6 @@
 
       google.maps.event.addDomListener(window, 'load', initialize);
       
-
-
       function addMarker(lat, lon, name) {
         var myLatlng=new google.maps.LatLng(lat, lon);
                       // To add the marker to the map, use the 'map' property
