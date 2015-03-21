@@ -3,6 +3,9 @@ import os
 from flask import Flask, render_template, request, redirect, url_for
 from flask.ext.sqlalchemy import SQLAlchemy
 
+import requests
+import xml.etree.ElementTree as ET
+
 sqlite_file = "sqlite:////tmp/flask_app.db"
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL',
@@ -36,7 +39,18 @@ def user():
 
 @app.route('/maptest')
 def maptest():
-    return render_template('maptest.html')
+    payload = {'key': '8e4402d8-6f8d-49fe-8e7c-d3d38098b4ef', 'lat': '47.606115', 'lon': '-122.335834', 'radius': '800'}
+    #r = requests.get("http://api.pugetsound.onebusaway.org/api/where/current-time.xml", params=payload)
+    #r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stops-for-location.xml", params=payload)
+    r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stops-for-location.json", params=payload)
+
+    response = r.json()
+
+    stop_list = []
+    for stop in response['data']['list'] : 
+        stop_list.append({'lat': stop['lat'], 'lon': stop['lon'], 'name': stop['name']})
+
+    return render_template('maptest.html', responsedata=stop_list)
 
 
 if __name__ == '__main__':
