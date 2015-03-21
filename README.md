@@ -1,4 +1,4 @@
-# Evergreen Awesome Hackathon: My Sample App
+# Hack the Commute: Bus Stop Accessibility
 
 The purpose of this app is to provide an example of how to best format an app submission on [Github](http://github.com) for a hackathon. If you'd like to suggest changes or improvements to this example, feel free to send me a pull request.
 
