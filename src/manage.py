@@ -11,7 +11,7 @@ from hackcessible.utils import MALE
 
 if "PORT" in os.environ:
     print "Found $PORT in env"
-    port = os.environ["PORT"]
+    port = int(os.environ["PORT"])
 else:
     print "Did not find $PORT in env, using 5000"
     port = 5000
