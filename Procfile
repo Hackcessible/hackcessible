@@ -1,1 +1,1 @@
-web: gunicorn ./src/app.wsgi
+web: python src/manage.py run
