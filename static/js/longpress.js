@@ -1,25 +1,3 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <div id="googleMap" style="width:320px;height:568px;"></div>
-    <h4>Key:</h4>
-    <ul>
-      <li>Elevation: </li>
-      <li>Curb Ramp: </li>
-      <li>Bus stop wheelchair accessibile: </li>
-      <li>Construction: </li>
-      <li>Elevator: </li> 
-      <li>Stairs: </li>
-    </ul> 
-{% endblock content %}
-
-{% block js_footer %}
-  {{ super() }}  <!-- Does parent block things first -->
-  <script src="http://maps.googleapis.com/maps/api/js"></script>
-  <script src='{{ url_for('static', filename='js/busdata.js') }}'></script>
-  <script src='{{ url_for('static', filename='js/longpress.js') }}'></script>
-  <script>
-
     //A function to save click location info
     function saveLocation(e) {
       if(typeof(Storage) !== "undefined") {
@@ -76,39 +54,3 @@
         this.isDragging=true;
         clearTimeout(this.timeoutId_);
       };
-
-
-      //End longpress
-
-      var myCenter = new google.maps.LatLng({{ lat }}, {{ lon }});
-      var map; 
-      function initialize() {
-        // Map size and type attributes
-        var mapProp = {center: myCenter,
-                       zoom: 17,
-                       mapTypeId: google.maps.MapTypeId.ROADMAP};
-
-        map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-
-        //Add longpress listener
-        new LongPress(map, 500);
-          google.maps.event.addListener(map, 'longpress', function(e) {saveLocation(e)});
-
-        var marker = new google.maps.Marker({position: myCenter});
-        marker.setMap(map);
-
-        var response = {{ responsedata|tojson }};
-        for (var stop in response) {
-          addMarker(map, response[stop]['lat'],response[stop]['lon'], response[stop]['name']);
-        }
-      }
-
-      // Initialize the map
-      google.maps.event.addDomListener(window, 'load', initialize);
-
-
-    </script>
-
-
-    
-{% endblock js_footer %}
