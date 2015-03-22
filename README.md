@@ -32,7 +32,7 @@ Once we did that, we knew we could make a change for someone's life!
 Our team is comprised of:
 
 - [@AllieDeford](https://github.com/AllieDeford) - Queen of Juggling All The Things! (a.k.a. Project Manager) and dev
-- [@nbolten](https://github.com/nbolten) - Supreme Overlord of Flask, virtual environments, and data manipulation and also super coder
+- [@nbolten](https://github.com/nbolten) - Supreme Overlord of Flask, virtual environments, and data manipulation. Super Coder (tm)
 - [@Reagankm](https://github.com/Reagankm) - Web dev novice but the kid's got heart
 - [@vesipan](https://github.com/versipan) - User Advocate and all-around design expert
 
