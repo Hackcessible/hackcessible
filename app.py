@@ -38,16 +38,21 @@ def user():
 
 @app.route('/maptest')
 def maptest():
-    payload = {'key': '8e4402d8-6f8d-49fe-8e7c-d3d38098b4ef', 'lat': '47.606115', 'lon': '-122.335834', 'radius': '800'}
-    #r = requests.get("http://api.pugetsound.onebusaway.org/api/where/current-time.xml", params=payload)
-    #r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stops-for-location.xml", params=payload)
-    r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stops-for-location.json", params=payload)
+    url = "http://api.pugetsound.onebusaway.org/api/where/" + \
+          "stops-for-location.json"
+    payload = {'key': '8e4402d8-6f8d-49fe-8e7c-d3d38098b4ef',
+               'lat': '47.606115',
+               'lon': '-122.335834',
+               'radius': '800'}
+    r = requests.get(url, params=payload)
 
     response = r.json()
 
     stop_list = []
-    for stop in response['data']['list'] : 
-        stop_list.append({'lat': stop['lat'], 'lon': stop['lon'], 'name': stop['name']})
+    for stop in response['data']['list']:
+        stop_list.append({'lat': stop['lat'],
+                          'lon': stop['lon'],
+                          'name': stop['name']})
 
     return render_template('maptest.html', responsedata=stop_list)
 
@@ -55,6 +60,17 @@ def maptest():
 @app.route('/curbmap')
 def curbmap():
     return render_template('curbmap.html')
+
+
+@app.route('/elevationmap')
+def elevationmap():
+    return render_template('elevationmap.html')
+
+
+@app.route('/curbmap_lines')
+def curbmap_lines():
+    return render_template('curb_lines_stringent.html')
+
 
 @app.route('/report')
 def report():
