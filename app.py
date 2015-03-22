@@ -56,6 +56,9 @@ def maptest():
 def curbmap():
     return render_template('curbmap.html')
 
+@app.route('/report')
+def report():
+    return render_template('report.html')
 
 if __name__ == '__main__':
     db.create_all()
