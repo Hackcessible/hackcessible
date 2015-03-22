@@ -1,30 +1,25 @@
-body {
-	background-color: #0F341C;
-}
 
-.container {
-	width: 300px;
-	height: 568px;
-	background-color: #A3C2C2;
+
+.container-fluid {
 	text-align: center;
 }
 
-.container .basicpillsmenu {
+.basicpillsmenu {
 	width: 260px;
 }
 
-.container .basicpillsmenu .nav-pills > li > a {
+.basicpillsmenu .nav-pills > li > a {
       background-color: rgb(25, 117, 209);
       font-size: 20px;
       color: #ffffff;
       text-align: left;
     }
 
-.container .basicpillsmenu .nav-pills > li > a:hover {
+.basicpillsmenu .nav-pills > li > a:hover {
       background-color: #009933;
     }
 
-.container .row .col-md-6 .menu-icon {
+.row .col-xs-6 .menu-icon {
 	height: 120px;
 	width: 120px;
 	background-repeat: no-repeat;	
@@ -32,27 +27,28 @@ body {
 }
 
 
-.container .row .construction-image {
+.row .construction-image {
 	background-image: url(../img/construction-sm.png);
+	background-repeat: none; 
 }
 
-.container .row .ramp-image {
+.row .ramp-image {
 	background-image: url(../img/ramp-sm.png);
 }
 
-.container .row .elevator-image {
+.row .elevator-image {
 	background-image: url(../img/Elevator-sm.png);
 }
 
-.container .row .incline-image {
+.row .incline-image {
 	background-image: url(../img/slope-sm.png);
 }
 
-.container .row .stairs-image {
+.row .stairs-image {
 	background-image: url(../img/Stairs_icon-sm.png);
 }
 
-.container .row .other-image {
+.row .other-image {
 	background-image: url(../img/others-sm.png);
 }
 
@@ -63,7 +59,7 @@ body {
 	margin-bottom: 5px;
 }
 
-.container .row .menu-icon {
+.row .menu-icon {
 	background-color: #0052CC;
 	border-color: #4D94FF;
 	border-style: outset;

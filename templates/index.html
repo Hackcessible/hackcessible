@@ -2,8 +2,14 @@
 
 {% block content %}
 <div style="width:90%; margin:0 auto;">
-<button onclick="getLocation()" class="btn btn-default btn-block" id="locationButton">Show Map</button>
+  <button onclick="getLocation()" class="btn btn-default btn-block" id="locationButton">Show Map of Current Location</button>
 </div>
+
+<div style="width:90%; margin:0 auto;">
+  <input class="field span6" type="text" id="stop_id"></input>
+  <button onclick="stopIdLocation()" class="btn btn-default btn-block" id="stopIdButton">Show Map Near Stop</button>
+</div>
+
 <div id="demo"></div>
 {% endblock content %}
 
@@ -13,9 +19,14 @@
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(showPosition);
-    } 
+    }
 }
-    
+
+function stopIdLocation() {
+  stopId = "1_" + $("#stop_id").val();
+  window.location.href = "maptest?stop_id=" + stopId;
+}
+
 function showPosition(position) {
     window.location.href = "maptest?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
 }
