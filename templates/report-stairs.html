@@ -26,10 +26,12 @@
           <h1 style="font-size: 16px; margin-top: 10px; margin-bottom: 10px"><a href="{{ url_for('report') }}" style="color: white; background-color: black">Back to Categories</a></h1>
         </div>
 
-        <h3 style="margin-top: 15px"> <img src="{{ url_for('static', filename='img/Stairs_icon-sm.png') }}" alt="Stairs Icon" title="Stairs icon" height="42" width="42"> Stairs </h3>
+        <h3 style="margin-top: 15px; font-size: 30px; padding-bottom: 0px; margin-bottom: 0px"> <img style="vertical-align: bottom" src="{{ url_for('static', filename='img/Stairs_icon-sm.png') }}" alt="Stairs Icon" title="Stairs icon" height="42" width="42"> Stairs </h3>
+        
         <div class="report">
-          <p style="color: #474747; font-size: 12px; margin-bottom: 0px">Location Clicked: <span id="loc-field" style="color: #707070"></span></p>
+          <p style="color: #474747; font-size: 12px; margin-bottom: 0px; margin-top: 15px">Location Clicked: <span id="loc-field" style="color: #707070"></span></p>
           <p style="color: #474747; font-size: 12px; margin-top: 0px; padding-top: 0px">Reported On: <span id="date-field" style="color: #707070"></span></p>
+          <hr style="padding-top: 0px; margin-top: 0px">
           <label style="margin-top: 10px; margin-bottom: 0px; padding-top: 0px">Location:</label>
           <textarea rows="2">Example: 2nd Ave between Spring and Seneca</textarea>
           <label style="margin-top: 20px; margin-bottom: 0px">Description:</label>
