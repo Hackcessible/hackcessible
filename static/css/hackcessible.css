@@ -41,3 +41,9 @@ input[type='checkbox'] {
 input[type='checkbox']:checked {
     background: #abd;
 }
+
+#locationButton {
+	text-align: center; 
+	padding:10px; 
+	margin-top: 10px; 
+}
