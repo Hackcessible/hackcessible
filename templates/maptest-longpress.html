@@ -20,6 +20,17 @@
 
   <script>
 
+    //A function to save click location info
+    function saveLocation(e) {
+      if(typeof(Storage) !== "undefined") {
+          sessionStorage.setItem("obstacleLocation", e.latLng.toString());
+        }
+
+        window.location.href = "../report";
+
+
+    }
+
     //A function to open the Obstacle Reporting window
     function openDialog(e) {
       //Set options
@@ -58,9 +69,11 @@
         this.timeoutId_ = setTimeout(function() {
           google.maps.event.trigger(map, 'longpress', event);
         }, this.length_);
+        this.isDragging=false;
       };
 
       LongPress.prototype.onMapDrag_ = function(e) {
+        this.isDragging=true;
         clearTimeout(this.timeoutId_);
       };
 
@@ -75,12 +88,11 @@
                        zoom: 17,
                        mapTypeId: google.maps.MapTypeId.ROADMAP};
 
-        map = new google.maps.Map(document.getElementById("googleMap"),
-                                      mapProp);
+        map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
         //Add longpress listener
         new LongPress(map, 500);
-          google.maps.event.addListener(map, 'longpress', function(e) {openDialog(e)});
+          google.maps.event.addListener(map, 'longpress', function(e) {saveLocation(e)});
 
         var marker = new google.maps.Marker({position: myCenter});
         marker.setMap(map);
