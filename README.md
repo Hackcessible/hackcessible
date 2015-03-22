@@ -10,6 +10,8 @@ Here's a pretty picture:
 
 ## Challenge and Approach
 
+Our submission is for [Challenge #2: Improve the commuter experience in any single mode](http://tmpl.at/1EykAbV).
+
 Today, a person in a wheelchair does not have a full or unified access to up-to-date information about upgraded ramp curbs, sidewalk closures, road construction, steep hills or other obtacles that can block their mobility. 
 
 We believe that every person in Seattle should enjoy freedom and convenience of commuting.   
