@@ -80,9 +80,14 @@ def ramp():
 def stairs():
     return render_template('report-stairs.html')
 
-@app.route('/report-other')
+@App.route('/report-other')
 def other():
     return render_template('report-other.html')
+
+@app.route('/report-submitted')
+def submit():
+    return render_template('report-submitted.html')
+
 
 if __name__ == '__main__':
     db.create_all()
