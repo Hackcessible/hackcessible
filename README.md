@@ -5,8 +5,8 @@ Today, the app allows users to check the terrain around the bus stop for accessi
 
 Our app is live at [http://hackcessible.herokuapp.com/](http://hackcessible.herokuapp.com/). 
 
-Here's a pretty picture:
-![Screenshot of our shiny thing](screenshot.png?raw=true "Hackcessible Transit App")
+Here's a pretty picture:  
+![Screenshot of Application](Screenshot.png "Hackcessible Transit App")
 
 ## Challenge and Approach
 
