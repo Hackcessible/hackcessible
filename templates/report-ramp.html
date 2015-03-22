@@ -1,74 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Obstacle Details</title>
+{% extends "report-form-base.html" %}
 
-    <!-- Bootstrap -->
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/report-details.css') }}" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-  </head>
-  <body onload="init();">
-
-      <div class="container">
-        <div class="row" style="background-color:black">
-          <h1 style="font-size: 16px; margin-top: 10px; margin-bottom: 10px"><a href="{{ url_for('report') }}" style="color: white; background-color: black">Back to Categories</a></h1>
-        </div>
-
+{% block customtitle %}
         <h3 style="margin-top: 15px; font-size: 30px; padding-bottom: 0px; margin-bottom: 0px"> <img style="vertical-align: bottom" src="{{ url_for('static', filename='img/ramp-sm.png') }}" alt="Curb Ramp Icon" title="Curb Ramp icon" height="42" width="42"> No Curb Ramp </h3>
-        
-        <div class="report">
-          <p style="color: #474747; font-size: 12px; margin-bottom: 0px; margin-top: 15px">Location Clicked: <span id="loc-field" style="color: #707070"></span></p>
-          <p style="color: #474747; font-size: 12px; margin-top: 0px; padding-top: 0px">Reported On: <span id="date-field" style="color: #707070"></span></p>
-          <hr style="padding-top: 0px; margin-top: 0px">
-          <label style="margin-top: 10px; margin-bottom: 0px; padding-top: 0px">Location:</label>
+{% endblock customtitle %}
+
+{% block customlocation %}
           <textarea rows="2">Example: Second and Spring</textarea>
-          <label style="margin-top: 20px; margin-bottom: 0px">Description:</label>
+{% endblock customlocation %}
+
+{% block customdescription %}
           <textarea rows="4">Example: No curb ramp at Second and Spring, northwest corner</textarea>
-
-          <div class="form-group" style="margin-top: 20px; margin-bottom: 0px">
-          <label for="inputPhoto" style="margin-bottom: 0px; padding-bottom: 0px">Upload Photo</label>
-          <p class="help-block" style="color: black; margin-top: 0px; margin-bottom: 0px">If you took a photo, you can upload it here</p>
-          <input type="file" id="inputPhoto" style="margin-top: 0px">
-          
-      </div>
-
-          <a type="submit" class="btn btn-lg btn-success center-block" style="margin-top: 30px"href="{{ url_for('submit') }}">Submit</a>
-        </div>
-      </div>
-
-      
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src=""{{ url_for('static', filename='js/bootstrap.min.js') }}""></script>
-    <script>
-      var d = new Date();
-      document.getElementById("date-field").innerHTML = d.toDateString();
-    </script> 
-    <script>
-      function init() {
-        
-        document.getElementById("loc-field").innerHTML = sessionStorage.getItem("obstacleLocation");
-      }
-
-    </script>
-
-  </body>
-  <footer>
-    
-  </footer>
-</html>
+{% endblock customdescription %}

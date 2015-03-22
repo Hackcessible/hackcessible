@@ -17,9 +17,11 @@
   </div>
 </div>
 
+<!--
 <form id="stopIdForm">
   <input class="btn btn-default btn-block">
 </form>
+-->
 
 <div id="demo"></div>
 {% endblock content %}
@@ -28,9 +30,9 @@
 {{ super() }}  <!-- Does parent block things first -->
 <script>
 
-$("#stopIdForm").onSubmit(function() {
-  console.log("Submitted!");
-}
+// $("#stopIdForm").onSubmit(function() {
+//   console.log("Submitted!");
+// }
 
 function getLocation() {
     if (navigator.geolocation) {

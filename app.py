@@ -50,7 +50,7 @@ def maptest():
         lon = request.args.get('lon', '')
         payload['lat'] = float(lat)
         payload['lon'] = float(lon)
-    
+
     #r = requests.get("http://api.pugetsound.onebusaway.org/api/where/current-time.xml", params=payload)
     #r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stops-for-location.xml", params=payload)
     r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stops-for-location.json", params=payload)
@@ -66,10 +66,10 @@ def maptest():
     return render_template('maptest.html', responsedata=stop_list, lat=payload['lat'], lon=payload['lon'], stop_id=request.args.get('stop_id', ''))
 
 
-@app.route('/maptest-longpress/')
+@app.route('/maptest-longpress')
 def maptestlong(location=None):
     payload = {'key': '8e4402d8-6f8d-49fe-8e7c-d3d38098b4ef', 'lat': '47.606115', 'lon': '-122.335834', 'radius': '800'}
-    
+
     #r = requests.get("http://api.pugetsound.onebusaway.org/api/where/current-time.xml", params=payload)
     #r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stops-for-location.xml", params=payload)
     r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stops-for-location.json", params=payload)
