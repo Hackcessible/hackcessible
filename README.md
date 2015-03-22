@@ -1,8 +1,11 @@
 # Hack the Commute: Bus Stop Accessibility
 
-The purpose of this app is to provide an example of how to best format an app submission on [Github](http://github.com) for a hackathon. If you'd like to suggest changes or improvements to this example, feel free to send me a pull request.
+This app is developed to help people who use wheelchairs plan their routes in Seattle, taking into account their specific accessibility needs. It can be used as an extention to OneBusAway application or as a separate tool.
+Today, the app allows users to check the terrain around the bus stop for accessibility issues. The future goal is to allow users to search for an accesible route based on their preferences.
 
-This application was developed on February 5th, 2015 for the [Evergreen Awesome Hackthon](http://example.com/this-goes-nowhere).
+If you'd like to suggest changes or improvements, feel free to contact us!
+
+This application was developed on March 22nd, 2015 for the [Hack the Commute hackathon](http://hackthecommute.seattle.gov/).
 
 ![Isn't our app beautiful?!](screenshot.jpg)
 
@@ -10,7 +13,14 @@ Our app is live at http://example.com/awesome-app-that-doesnt-exist. You can log
 
 ## Challenge and Approach
 
-Our submission is for [Challenge #3: Build an app that provides an example of an Awesome Hackathon submission](http://example.com/this-also-goes-nowhere).
+Our submission is for [Challenge #2: Improve the commuter experience in any single mode](http://tmpl.at/1EykAbV).
+
+Today, a person in a wheelchair does not have a full or unified access to up-to-date information about upgraded ramp curbs, sidewalk closures, road construction, steep hills or other obtacles that can block their mobility. 
+
+We believe that every person in Seattle should enjoy freedom and convenience of commuting.   
+
+**Design question**:
+_How can we help people who use wheelchairs find routes tailored to their needs? How can we improve their commute experience in Seattle?_
 
 Our approach for satisfying this challenge was to:
 
@@ -18,16 +28,16 @@ Our approach for satisfying this challenge was to:
 - Share it on Github
 - Collect feedback from the community
 
-Once we did that, we knew we were guaranteed to win!
+Once we did that, we knew we could make a change for someone's life!
 
 ## Team Members
 
 Our team is comprised of:
 
-- [@chrismetcalf](http://github.com/chrismetcalf) - README.md author and all around awesome guy
-- [@torvalds](http://github.com/torvalds) - Wrangler of penguins
-- [@matz](http://github.com/matz) - Miner of Rubies
-- [@gvanrossum](http://github.com/gvanrossum) - Python charmer
+- [@AllieDeford](https://github.com/AllieDeford) - README.md author and all around awesome guy
+- [@nbolten](https://github.com/nbolten) - Wrangler of penguins
+- [@Reagankm](https://github.com/Reagankm) - Miner of Rubies
+- [@vesipan](https://github.com/versipan) - user advocate
 
 ## Technologies, APIs, and Datasets Utilized
 
