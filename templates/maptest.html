@@ -21,6 +21,7 @@
   <script src='{{ url_for('static', filename='js/busdata.js') }}'></script>
   <script src='{{ url_for('static', filename='js/curbdata.js') }}'></script>
   <script src='{{ url_for('static', filename='js/elevation.js') }}'></script>
+  <script src='{{ url_for('static', filename='js/longpress.js') }}'></script>
 
   <script>
       var myCenter = new google.maps.LatLng({{ lat }}, {{ lon }});
@@ -36,6 +37,10 @@
                                       mapProp);
         var marker = new google.maps.Marker({position: myCenter});
         marker.setMap(map);
+
+        //Add longpress listener
+        new LongPress(map, 500);
+          google.maps.event.addListener(map, 'longpress', function(e) {saveLocation(e)});
 
         // Add stops
         var response = {{ responsedata|tojson }};
