@@ -1,0 +1,77 @@
+body {
+	background-color: #0F341C;
+}
+
+.container {
+	width: 300px;
+	height: 568px;
+	background-color: #A3C2C2;
+	text-align: center;
+}
+
+.container .basicpillsmenu {
+	width: 260px;
+}
+
+.container .basicpillsmenu .nav-pills > li > a {
+      background-color: rgb(25, 117, 209);
+      font-size: 20px;
+      color: #ffffff;
+      text-align: left;
+    }
+
+.container .basicpillsmenu .nav-pills > li > a:hover {
+      background-color: #009933;
+    }
+
+.container .row .col-md-6 .menu-icon {
+	height: 120px;
+	width: 120px;
+	background-repeat: no-repeat;	
+    background-position: bottom; 
+}
+
+
+.container .row .construction-image {
+	background-image: url({{ url_for('static', filename='../img/construction-sm.png') }});
+}
+
+.container .row .curb-image {
+	background-image: url({{ url_for('static', filename='img/curb-sm.png') }});
+}
+
+.container .row .elevator-image {
+	background-image: url({{ url_for('static', filename='img/Elevator-sm.png') }});
+}
+
+.container .row .incline-image {
+	background-image: url({{ url_for('static', filename='img/slope-sm.png') }});
+}
+
+.container .row .stairs-image {
+	background-image: url({{ url_for('static', filename='img/Stairs_icon-sm.png') }});
+}
+
+.container .row .other-image {
+	background-image: url({{ url_for('static', filename='img/construction-sm.png') }});
+}
+
+.icon-row {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.container .row .menu-icon {
+	background-color: #0052CC;
+	border-color: #4D94FF;
+	border-style: outset;
+	border-width: 3px;
+	padding-top: 3px;
+
+}
+
+.container .row .menu-icon:hover {
+	background-color: #4D94FF;
+}
