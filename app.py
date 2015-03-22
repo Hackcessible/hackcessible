@@ -51,8 +51,10 @@ def maptest(location=None):
     response = r.json()
 
     stop_list = []
-    for stop in response['data']['list'] : 
-        stop_list.append({'lat': stop['lat'], 'lon': stop['lon'], 'name': stop['name']})
+    for stop in response['data']['list']:
+        stop_list.append({'lat': stop['lat'],
+                          'lon': stop['lon'],
+                          'name': stop['name']})
 
     return render_template('maptest.html', responsedata=stop_list, lat=lat, lon=lon)
 
@@ -61,9 +63,56 @@ def maptest(location=None):
 def curbmap():
     return render_template('curbmap.html')
 
+
+@app.route('/elevationmap')
+def elevationmap():
+    return render_template('elevationmap.html')
+
+
+@app.route('/curbmap_lines')
+def curbmap_lines():
+    return render_template('curb_lines_stringent.html')
+
+
 @app.route('/report')
 def report():
     return render_template('report.html')
+
+
+@app.route('/report-construction')
+def construction():
+    return render_template('report-construction.html')
+
+
+@app.route('/report-incline')
+def incline():
+    return render_template('report-incline.html')
+
+
+@app.route('/report-elevator')
+def elevator():
+    return render_template('report-elevator.html')
+
+
+@app.route('/report-ramp')
+def ramp():
+    return render_template('report-ramp.html')
+
+
+@app.route('/report-stairs')
+def stairs():
+    return render_template('report-stairs.html')
+
+
+@app.route('/report-other')
+def other():
+    return render_template('report-other.html')
+
+
+@app.route('/report-submitted')
+def submit():
+    return render_template('report-submitted.html')
+
 
 if __name__ == '__main__':
     db.create_all()

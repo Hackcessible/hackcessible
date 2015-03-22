@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Obstacle Details</title>
+
+    <!-- Bootstrap -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/report-details.css') }}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+
+	    <div class="container">
+	    	<div class="row" style="background-color:black">
+	    		<h1 style="font-size: 16px; margin-top: 10px; margin-bottom: 10px"><a href="report.html" style="color: white; background-color: black">Back to Categories</a></h1>
+	    	</div>
+
+	      <h3 style="margin-top: 15px">Hill</h3>
+	      <div class="report">
+	      	<p>Reported On: <span id="date-field"></span></p>
+	      	<p style="margin-top: 30px">Location:</p>
+	      	<textarea rows="2">Example: 2nd Ave between Spring and Seneca</textarea>
+	      	<p style="margin-top: 20px">Description:</p>
+	      	<textarea rows="4">Example: Uphill from Spring to Seneca</textarea>
+
+	      	<div class="form-group" style="margin-top: 30px">
+			    <label for="exampleInputFile">Upload Photo</label>
+			    <p class="help-block" style="color: black">If you took a photo, you can upload it here</p>
+			    <input type="file" id="exampleInputFile">
+			    
+		 	</div>
+
+	        <button type="submit" class="btn btn-lg center-block"><a href="{{ url_for('submit') }}">Submit</a></button>
+	      </div>
+	    </div>
+
+      
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src=""{{ url_for('static', filename='js/bootstrap.min.js') }}""></script>
+    <script>
+		var d = new Date();
+		document.getElementById("date-field").innerHTML = d.toDateString();
+	</script> 
+  </body>
+  <footer>
+    
+  </footer>
+</html>
