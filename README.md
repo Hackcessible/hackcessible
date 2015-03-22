@@ -1,7 +1,7 @@
 # Hack the Commute: Bus Stop Accessibility
 
 This app is developed to help people who use wheelchairs plan their routes in Seattle, taking into account their specific accessibility needs. It can be used as an extention to OneBusAway application or as a separate tool.
-Today, the app allows users to check the terrain around the bus stop for accessibility issues. The future goal is to allow users to search for an accesible route based on their preferences.
+Today, the app allows users to check the terrain around the bus stop for accessibility issues, report obstacles and verify information contribued by other users. The future goal is to allow users to search for an accesible route based on their preferences.
 
 The application was developed on March 22nd, 2015 for the [Hack the Commute hackathon](http://hackthecommute.seattle.gov/). If you'd like to suggest changes or improvements, feel free to contact us!
 
