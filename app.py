@@ -60,6 +60,30 @@ def curbmap():
 def report():
     return render_template('report.html')
 
+@app.route('/report-construction')
+def report():
+    return render_template('report-construction.html')
+
+@app.route('/report-incline')
+def report():
+    return render_template('report-incline.html')
+
+@app.route('/report-elevator')
+def report():
+    return render_template('report-elevator.html')
+
+@app.route('/report-ramp')
+def report():
+    return render_template('report-ramp.html')
+
+@app.route('/report-stairs')
+def report():
+    return render_template('report-stairs.html')
+
+@app.route('/report-other')
+def report():
+    return render_template('report-other.html')
+
 if __name__ == '__main__':
     db.create_all()
     port = int(os.environ.get('PORT', 5000))
