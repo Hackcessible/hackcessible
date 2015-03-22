@@ -33,27 +33,27 @@ body {
 
 
 .container .row .construction-image {
-	background-image: url({{ url_for('static', filename='../img/construction-sm.png') }});
+	background-image: url(../img/construction-sm.png);
 }
 
-.container .row .curb-image {
-	background-image: url({{ url_for('static', filename='img/curb-sm.png') }});
+.container .row .ramp-image {
+	background-image: url(../img/ramp-sm.png);
 }
 
 .container .row .elevator-image {
-	background-image: url({{ url_for('static', filename='img/Elevator-sm.png') }});
+	background-image: url(../img/Elevator-sm.png);
 }
 
 .container .row .incline-image {
-	background-image: url({{ url_for('static', filename='img/slope-sm.png') }});
+	background-image: url(../img/slope-sm.png);
 }
 
 .container .row .stairs-image {
-	background-image: url({{ url_for('static', filename='img/Stairs_icon-sm.png') }});
+	background-image: url(../img/Stairs_icon-sm.png);
 }
 
 .container .row .other-image {
-	background-image: url({{ url_for('static', filename='img/construction-sm.png') }});
+	background-image: url(../img/others-sm.png);
 }
 
 .icon-row {
