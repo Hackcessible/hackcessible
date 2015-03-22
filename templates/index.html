@@ -20,15 +20,12 @@
 
   </head>
   <body>
-    <p>Click the button to get your coordinates.</p>
+<button onclick="getLocation()">Open Application</button>
 
-<button onclick="getLocation()">Try It</button>
-
-<p id="demo"></p>
+<div id="demo"></div>
 
 <script>
 var x = document.getElementById("demo");
-
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(showPosition);
@@ -36,10 +33,11 @@ function getLocation() {
         x.innerHTML = "Geolocation is not supported by this browser.";}
     }
     
-function showPosition(position) {
-    x.innerHTML="Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;  
-}
+    function showPosition(position) {
+        window.location.href = "maptest/" + position.coords.latitude + "&" + position.coords.longitude;
+    }
+
+
 </script>
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
