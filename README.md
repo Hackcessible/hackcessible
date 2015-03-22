@@ -5,10 +5,12 @@ Today, the app allows users to check the terrain around the bus stop for accessi
 
 Our app is live at [http://hackcessible.herokuapp.com/](http://hackcessible.herokuapp.com/). 
 
-Here's a pretty picture:
-![Screenshot of our shiny thing](screenshot.jpg?raw=true "Hackcessible Transit App")
+Here's a pretty picture:  
+![Screenshot of Application](Screenshot.png "Hackcessible Transit App")
 
 ## Challenge and Approach
+
+Our submission is for [Challenge #2: Improve the commuter experience in any single mode](http://tmpl.at/1EykAbV).
 
 Today, a person in a wheelchair does not have a full or unified access to up-to-date information about upgraded ramp curbs, sidewalk closures, road construction, steep hills or other obtacles that can block their mobility. 
 
@@ -31,10 +33,10 @@ Once we did that, we knew we could make a change for someone's life!
 
 Our team is comprised of:
 
-- [@AllieDeford](https://github.com/AllieDeford) - Project manager and super coder
-- [@nbolten](https://github.com/nbolten) - King of Flask and virtual environments and also super coder
+- [@AllieDeford](https://github.com/AllieDeford) - Queen of Juggling All The Things! (a.k.a. Project Manager) and dev
+- [@nbolten](https://github.com/nbolten) - Supreme Overlord of Flask, virtual environments, and data manipulation. Super Coder (tm)
 - [@Reagankm](https://github.com/Reagankm) - Web dev novice but the kid's got heart
-- [@vesipan](https://github.com/versipan) - User advocate and design expert
+- [@vesipan](https://github.com/versipan) - User Advocate and all-around design expert
 
 ## Technologies, APIs, and Datasets Utilized
 
@@ -53,6 +55,6 @@ In order to run our app:
 1. Visit [http://hackcessible.herokuapp.com/](http://hackcessible.herokuapp.com/)
 2. Enter a bus stop number or click "Show Map of Current Location"
 3. Use the filters at the bottom of the page to select the obstacles you wish to see
-4. Longpress (click and hold without moving the mouse) to report a new obstacle
+4. Longpress (click and hold without moving the mouse to report a new obstacle
 
 Our code is licensed under the [MIT License](LICENSE.md). Pull requests will be accepted to this repo, pending review and approval.
