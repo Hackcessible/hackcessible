@@ -19,31 +19,32 @@
     <![endif]-->
 
   </head>
-  <body>
+  <body onload="init();">
 
-	    <div class="container">
-	    	<div class="row" style="background-color:black">
-	    		<h1 style="font-size: 16px; margin-top: 10px; margin-bottom: 10px"><a href="report.html" style="color: white; background-color: black">Back to Categories</a></h1>
-	    	</div>
+      <div class="container">
+        <div class="row" style="background-color:black">
+          <h1 style="font-size: 16px; margin-top: 10px; margin-bottom: 10px"><a href="{{ url_for('report') }}" style="color: white; background-color: black">Back to Categories</a></h1>
+        </div>
 
-	      <h3 style="margin-top: 15px">Hill</h3>
-	      <div class="report">
-	      	<p>Reported On: <span id="date-field"></span></p>
-	      	<p style="margin-top: 30px">Location:</p>
-	      	<textarea rows="2">Example: 2nd Ave between Spring and Seneca</textarea>
-	      	<p style="margin-top: 20px">Description:</p>
-	      	<textarea rows="4">Example: Uphill from Spring to Seneca</textarea>
+        <h3 style="margin-top: 15px"> <img src="{{ url_for('static', filename='img/slope-sm.png') }}" alt="Incline Icon" title="Incline icon" height="42" width="42"> Hill </h3>
+        <div class="report">
+          <p style="color: #474747; font-size: 12px; margin-bottom: 0px">Location Clicked: <span id="loc-field" style="color: #707070"></span></p>
+          <p style="color: #474747; font-size: 12px; margin-top: 0px; padding-top: 0px">Reported On: <span id="date-field" style="color: #707070"></span></p>
+          <label style="margin-top: 10px; margin-bottom: 0px; padding-top: 0px">Location:</label>
+          <textarea rows="2">Example: Second Ave between Spring and Seneca</textarea>
+          <label style="margin-top: 20px; margin-bottom: 0px">Description:</label>
+          <textarea rows="4">Example: Uphill from Spring to Seneca</textarea>
 
-	      	<div class="form-group" style="margin-top: 30px">
-			    <label for="exampleInputFile">Upload Photo</label>
-			    <p class="help-block" style="color: black">If you took a photo, you can upload it here</p>
-			    <input type="file" id="exampleInputFile">
-			    
-		 	</div>
+          <div class="form-group" style="margin-top: 20px; margin-bottom: 0px">
+          <label for="inputPhoto" style="margin-bottom: 0px; padding-bottom: 0px">Upload Photo</label>
+          <p class="help-block" style="color: black; margin-top: 0px; margin-bottom: 0px">If you took a photo, you can upload it here</p>
+          <input type="file" id="inputPhoto" style="margin-top: 0px">
+          
+      </div>
 
-	        <button type="submit" class="btn btn-lg center-block"><a href="{{ url_for('submit') }}">Submit</a></button>
-	      </div>
-	    </div>
+          <a type="submit" class="btn btn-lg btn-success center-block" style="margin-top: 30px"href="{{ url_for('submit') }}">Submit</a>
+        </div>
+      </div>
 
       
 
@@ -53,9 +54,17 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src=""{{ url_for('static', filename='js/bootstrap.min.js') }}""></script>
     <script>
-		var d = new Date();
-		document.getElementById("date-field").innerHTML = d.toDateString();
-	</script> 
+      var d = new Date();
+      document.getElementById("date-field").innerHTML = d.toDateString();
+    </script> 
+    <script>
+      function init() {
+        
+        document.getElementById("loc-field").innerHTML = sessionStorage.getItem("obstacleLocation");
+      }
+
+    </script>
+
   </body>
   <footer>
     
