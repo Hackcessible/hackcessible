@@ -20,6 +20,7 @@ Today, a person in a wheelchair does not have a full or unified access to up-to-
 We believe that every person in Seattle should enjoy freedom and convenience of commuting.   
 
 **Design question**:
+
 _How can we help people who use wheelchairs find routes tailored to their needs? How can we improve their commute experience in Seattle?_
 
 Our approach for satisfying this challenge was to:
