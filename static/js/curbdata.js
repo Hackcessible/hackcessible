@@ -8,7 +8,12 @@ var myCenter = new google.maps.LatLng(47.606115, -122.335834);
 addCurbs = function(map) {
   var curbLength = 2e-5;
   var curbWingSize = 1e-5;
-  var sidewalkCols = ["objectid", "condition", "curbramphighyn", "curbramplowyn", "shape", "current_status"]
+  var sidewalkCols = ["objectid",
+                      "condition",
+                      "curbramphighyn",
+                      "curbramplowyn",
+                      "shape",
+                      "current_status"]
   var params = {
         "$select": sidewalkCols.join(","),
         "$limit": 1000, // FIXME: modify this in the final version to retrieve all curbs
@@ -17,39 +22,40 @@ addCurbs = function(map) {
         "current_status": "INSVC"
       }
 
-  var url = SIDEWALKS_URL + "?" + $.param(params)
   $.ajax({
     url: SIDEWALKS_URL,
     dataType: "json",
     data: params,
     headers: {"X-App-Token": APIKey},
     success: function(data) {
+      requestDataHandler(data);
+    }
+  });
+
+  drawCurb = function(coord, map) {
+    coordinates = [new google.maps.LatLng(coord[0][0], coord[0][1]),
+                   new google.maps.LatLng(coord[1][0], coord[1][1])];
+    path = new google.maps.Polyline({
+      path: coordinates,
+      geodesic: true,
+      strokeColor: "#0000FF",
+      strokeOpacity: 0.6,
+      strokeWeight:3
+    });
+    path.setMap(map);
+  }
+
+  curbDrawLengthCoordinates = function(curbLocation, slope, length) {
+    dx = Math.sqrt(Math.pow(length, 2) / (Math.pow(slope, 2) + 1));
+    dy = slope * dx;
+    return [[curbLocation[0] - dx, curbLocation[1] - dy],
+            [curbLocation[0] + dx, curbLocation[1] + dy]];
+  }
+
+  requestDataHandler = function(data) {
       for (var i=0; i < data.length; i++) {
         shape = data[i]["shape"]
         paths = shape["geometry"]["paths"][0]
-        // NOTE: All non-terminal curbs are ignored (i.e. if there's
-        // a cross-walk mid-way down the block with a curb, it's ignored
-        // Get first curb location and equation for line
-
-        curbDrawLengthCoordinates = function(curbLocation, slope, length) {
-          dx = Math.sqrt(Math.pow(length, 2) / (Math.pow(slope, 2) + 1));
-          dy = slope * dx;
-          return [[curbLocation[0] - dx, curbLocation[1] - dy],
-                  [curbLocation[0] + dx, curbLocation[1] + dy]];
-        }
-
-        drawCurb = function(coord, map) {
-          coordinates = [new google.maps.LatLng(coord[0][0], coord[0][1]),
-                         new google.maps.LatLng(coord[1][0], coord[1][1])];
-          path = new google.maps.Polyline({
-            path: coordinates,
-            geodesic: true,
-            strokeColor: "#0000FF",
-            strokeOpacity: 0.6,
-            strokeWeight:3
-          });
-          path.setMap(map);
-        }
 
         // Calculate characteristics of curb - its position and the slope
         // of the incoming sidewalk. Eventually this would be linalg
@@ -75,5 +81,4 @@ addCurbs = function(map) {
         drawCurb(coord1, map);
       }
     }
-  });
 }
