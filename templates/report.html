@@ -19,7 +19,7 @@
     <![endif]-->
     
   </head>
-  <body onload="init();">
+  <body>
     
     <div class="container">
       <div class="row" style="background-color:black">
@@ -62,18 +62,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-    <script>
-      function init() {
-        var passedLocation = window.dialogArguments;
-
-        if(typeof(Storage) !== "undefined") {
-          sessionStorage.setItem("obstacleLocation", passedLocation.toString())
-        } else {
-          // Sorry! No Web Storage support..
-        }
-      }
-
-    </script>
+    
 
   </body>
   <footer>
