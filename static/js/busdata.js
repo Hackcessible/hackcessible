@@ -18,6 +18,5 @@ function addMarker(map, lat, lon, name) {
       icon: image
   });
 
-  marker.setMap(map); 
 
 }
