@@ -34,7 +34,7 @@ function getLocation() {
     }
     
     function showPosition(position) {
-        window.location.href = "maptest/" + position.coords.latitude + "&" + position.coords.longitude;
+        window.location.href = "maptest?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
     }
 
 

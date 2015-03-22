@@ -36,14 +36,15 @@ def user():
     return redirect(url_for('index'))
 
 
-@app.route('/maptest/<location>')
-def maptest(location=None):
+@app.route('/maptest', methods=['GET'])
+def maptest():
     payload = {'key': '8e4402d8-6f8d-49fe-8e7c-d3d38098b4ef', 'lat': '47.606115', 'lon': '-122.335834', 'radius': '800'}
-    if location is not None: 
-        lat, lon = location.split('&')
+    if(request.method=='GET'):
+        lat = request.args.get('lat', '')
+        lon = request.args.get('lon', '')
         payload['lat'] = float(lat)
         payload['lon'] = float(lon)
-
+    
     #r = requests.get("http://api.pugetsound.onebusaway.org/api/where/current-time.xml", params=payload)
     #r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stops-for-location.xml", params=payload)
     r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stops-for-location.json", params=payload)
