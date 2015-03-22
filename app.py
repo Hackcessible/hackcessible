@@ -36,14 +36,21 @@ def user():
     return redirect(url_for('index'))
 
 
-@app.route('/maptest/<location>')
-def maptest(location=None):
+@app.route('/maptest', methods=['GET'])
+def maptest():
     payload = {'key': '8e4402d8-6f8d-49fe-8e7c-d3d38098b4ef', 'lat': '47.606115', 'lon': '-122.335834', 'radius': '800'}
-    if location is not None: 
-        lat, lon = location.split('&')
+    if 'stop_id' in request.args:
+        stop_id = str(request.args.get('stop_id', ''))
+        r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stop/" + stop_id + ".json", params={'key': '8e4402d8-6f8d-49fe-8e7c-d3d38098b4ef'})
+        response = r.json()
+        payload['lat'] = float(response['data']['entry']['lat'])
+        payload['lon'] = float(response['data']['entry']['lon'])
+    elif 'lat' in request.args:
+        lat = request.args.get('lat', '')
+        lon = request.args.get('lon', '')
         payload['lat'] = float(lat)
         payload['lon'] = float(lon)
-
+    
     #r = requests.get("http://api.pugetsound.onebusaway.org/api/where/current-time.xml", params=payload)
     #r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stops-for-location.xml", params=payload)
     r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stops-for-location.json", params=payload)
@@ -56,7 +63,7 @@ def maptest(location=None):
                           'lon': stop['lon'],
                           'name': stop['name']})
 
-    return render_template('maptest.html', responsedata=stop_list, lat=lat, lon=lon)
+    return render_template('maptest.html', responsedata=stop_list, lat=payload['lat'], lon=payload['lon'], stop_id=request.args.get('stop_id', ''))
 
 
 @app.route('/maptest-longpress/')
