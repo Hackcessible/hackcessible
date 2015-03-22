@@ -60,28 +60,28 @@ def curbmap():
 def report():
     return render_template('report.html')
 
-@app.route('/construction')
-def report():
+@app.route('/report-construction')
+def construction():
     return render_template('report-construction.html')
 
-@app.route('/incline')
-def report():
+@app.route('/report-incline')
+def incline():
     return render_template('report-incline.html')
 
-@app.route('/elevator')
-def report():
+@app.route('/report-elevator')
+def elevator():
     return render_template('report-elevator.html')
 
-@app.route('/ramp')
-def report():
+@app.route('/report-ramp')
+def ramp():
     return render_template('report-ramp.html')
 
-@app.route('/stairs')
-def report():
+@app.route('/report-stairs')
+def stairs():
     return render_template('report-stairs.html')
 
-@app.route('/other')
-def report():
+@app.route('/report-other')
+def other():
     return render_template('report-other.html')
 
 if __name__ == '__main__':
