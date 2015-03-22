@@ -20,10 +20,10 @@
 
       var map = new google.maps.Map(document.getElementById("googleMap"),
                                     mapProp);
-//      var marker = new google.maps.Marker({position: myCenter});
-//      marker.setMap(map);
 
-      addElevation(map);
+      elevation_dataurl = {{ url_for("static", filename="js/elevation-data-YY-800-20150322.json") | tojson }}
+
+      addElevation(elevation_dataurl, map);
     }
 
     // Initialize the map
