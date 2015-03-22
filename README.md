@@ -55,6 +55,6 @@ In order to run our app:
 1. Visit [http://hackcessible.herokuapp.com/](http://hackcessible.herokuapp.com/)
 2. Enter a bus stop number or click "Show Map of Current Location"
 3. Use the filters at the bottom of the page to select the obstacles you wish to see
-4. Longpress (click and hold without moving the mouse) to report a new obstacle
+4. Longpress (click and hold without moving the mouse to report a new obstacle
 
 Our code is licensed under the [MIT License](LICENSE.md). Pull requests will be accepted to this repo, pending review and approval.
