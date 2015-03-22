@@ -1,14 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div style="width:90%; margin:0 auto;">
-  <button onclick="getLocation()" class="btn btn-default btn-block" id="locationButton">Show Map of Current Location</button>
-</div>
+<form>
+  <div class="form-group">
+    <div style="width:90%; margin:0 auto;">
+      <button onclick="getLocation()" class="btn btn-default btn-block" id="locationButton">Show Map of Current Location</button>
+    </div>
+  </div>
+</form>
 
-<div style="width:90%; margin:0 auto;">
-  <input class="field span6" type="text" id="stop_id"></input>
-  <button onclick="stopIdLocation()" class="btn btn-default btn-block" id="stopIdButton">Show Map Near Stop</button>
-</div>
+<form class="form-inline form-horizontal">
+  <div class="form-group">
+    <div style="width:90%; margin:0 auto;">
+      <label>By Bus Stop ID:</label>
+      <input class="form-control" type="text" id="stop_id" placeholder="Bus Stop ID, e.g. '940'">
+    </div>
+    <button onclick="stopIdLocation()" class="btn btn-default" id="stopIdButton">Show Map Near Stop</button>
+  </div>
+</form>
 
 <div id="demo"></div>
 {% endblock content %}
