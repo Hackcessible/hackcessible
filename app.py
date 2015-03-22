@@ -4,7 +4,6 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask.ext.sqlalchemy import SQLAlchemy
 
 import requests
-import xml.etree.ElementTree as ET
 
 sqlite_file = "sqlite:////tmp/flask_app.db"
 app = Flask(__name__)
