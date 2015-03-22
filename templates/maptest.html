@@ -11,7 +11,7 @@
       <li><input type="checkbox" name="information" value="construction" checked> <img src="{{ url_for('static', filename='img/construction.png') }}" class='icon'> Construction</input></li>
       <li><input type="checkbox" name="information" value="elevator" checked> <img src="{{ url_for('static', filename='img/Elevator.png') }}" class='icon'> Elevator</input> </li>
       <li><input type="checkbox" name="information" value="stairs" checked> <img src="{{ url_for('static', filename='img/stairs.png') }}" class='icon'> Stairs </input></li>
-    </ul> 
+    </ul>
     <button onclick="redrawMap()" class="btn btn-default btn-block" id="locationButton">Redraw Map</button>
 {% endblock content %}
 
@@ -19,6 +19,8 @@
   {{ super() }}  <!-- Does parent block things first -->
   <script src="http://maps.googleapis.com/maps/api/js"></script>
   <script src='{{ url_for('static', filename='js/busdata.js') }}'></script>
+  <script src='{{ url_for('static', filename='js/curbdata.js') }}'></script>
+  <script src='{{ url_for('static', filename='js/elevation.js') }}'></script>
 
   <script>
       var myCenter = new google.maps.LatLng({{ lat }}, {{ lon }});
@@ -35,11 +37,18 @@
         var marker = new google.maps.Marker({position: myCenter});
         marker.setMap(map);
 
-
+        // Add stops
         var response = {{ responsedata|tojson }};
         for (var stop in response) {
           addMarker(map, response[stop]['lat'],response[stop]['lon'], response[stop]['name']);
         }
+
+        // Add elevation information
+        elevation_dataurl = {{ url_for("static", filename="js/elevation-data-YY-800-20150322.json") | tojson }}
+        addElevation(elevation_dataurl, map);
+
+        // Add curbs
+        addCurbs(map);
       }
 
       function redrawMap() {
@@ -53,7 +62,8 @@
         var response = {{ responsedata|tojson }};
         for (var stop in response) {
           addMarker(map, response[stop]['lat'],response[stop]['lon'], response[stop]['name']);
-        } 
+        }
+
       }
 
       // Initialize the map
