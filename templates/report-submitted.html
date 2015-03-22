@@ -19,7 +19,7 @@
     <![endif]-->
 
   </head>
-  <body>
+  <body onload="returnTimer();">
 
 	    <div class="container">
 	    	<div class="row" style="background-color:black">
@@ -39,10 +39,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src=""{{ url_for('static', filename='js/bootstrap.min.js') }}""></script>
+    
     <script>
-		var d = new Date();
-		document.getElementById("date-field").innerHTML = d.toDateString();
-	</script> 
+      function returnTimer() {
+        
+        setTimeout(function(){window.location.href = "../maptest";},3000);
+      }
+    </script>
   </body>
   <footer>
     
