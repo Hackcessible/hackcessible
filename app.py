@@ -76,6 +76,35 @@ def curbmap_lines():
 def report():
     return render_template('report.html')
 
+@app.route('/report-construction')
+def construction():
+    return render_template('report-construction.html')
+
+@app.route('/report-incline')
+def incline():
+    return render_template('report-incline.html')
+
+@app.route('/report-elevator')
+def elevator():
+    return render_template('report-elevator.html')
+
+@app.route('/report-ramp')
+def ramp():
+    return render_template('report-ramp.html')
+
+@app.route('/report-stairs')
+def stairs():
+    return render_template('report-stairs.html')
+
+@App.route('/report-other')
+def other():
+    return render_template('report-other.html')
+
+@app.route('/report-submitted')
+def submit():
+    return render_template('report-submitted.html')
+
+
 if __name__ == '__main__':
     db.create_all()
     port = int(os.environ.get('PORT', 5000))
