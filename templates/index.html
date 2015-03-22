@@ -1,20 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="form-group">
+<div class="form-group" style="width:90%; margin:0 auto;">
   <div style="width:90%; margin:0 auto;">
     <button onclick="getLocation()" class="btn btn-default btn-block" id="locationButton">Show Map of Current Location</button>
   </div>
-</div>
+  <br>
 
-<div class="form-group">
   <div style="width:90%; margin:0 auto;">
     <label>By Bus Stop ID:</label>
     <input class="form-control" type="text" id="stop_id">
     <!--
     <input class="form-control" type="text" id="stop_id" placeholder="Bus Stop ID, e.g. '940'">
     -->
-    <button onclick="stopIdLocation()" class="btn btn-default" id="stopIdButton">Show Map Near Stop</button>
+    <button onclick="stopIdLocation()" class="btn btn-default btn-block" id="stopIdButton">Show Map Near Stop</button>
   </div>
 </div>
 
