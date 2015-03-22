@@ -59,6 +59,25 @@ def maptest(location=None):
     return render_template('maptest.html', responsedata=stop_list, lat=lat, lon=lon)
 
 
+@app.route('/maptest-longpress/')
+def maptestlong(location=None):
+    payload = {'key': '8e4402d8-6f8d-49fe-8e7c-d3d38098b4ef', 'lat': '47.606115', 'lon': '-122.335834', 'radius': '800'}
+    
+    #r = requests.get("http://api.pugetsound.onebusaway.org/api/where/current-time.xml", params=payload)
+    #r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stops-for-location.xml", params=payload)
+    r = requests.get("http://api.pugetsound.onebusaway.org/api/where/stops-for-location.json", params=payload)
+
+    response = r.json()
+
+    stop_list = []
+    for stop in response['data']['list']:
+        stop_list.append({'lat': stop['lat'],
+                          'lon': stop['lon'],
+                          'name': stop['name']})
+
+    return render_template('maptest-longpress.html', responsedata=stop_list, lat='47.606115', lon='-122.335834')
+
+
 @app.route('/curbmap')
 def curbmap():
     return render_template('curbmap.html')
